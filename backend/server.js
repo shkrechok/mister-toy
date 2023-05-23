@@ -18,7 +18,7 @@ const cors = require('cors')
 //     credentials: true
 // }
 // app.use(cors(corsOptions))
-// app.use(express.static('public'))
+app.use(express.static('public'))
 app.use(cookieParser()) // for res.cookies
 app.use(express.json()) // for req.body
 
@@ -125,9 +125,9 @@ app.delete('/api/toy/:toyId', (req, res) => {
 // app.listen(3030, () => console.log('Server listening on port 3030!'))
 const port = process.env.PORT || 3030;
 
-app.get('/**', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-})
+// app.get('/**', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// })
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}!`)
