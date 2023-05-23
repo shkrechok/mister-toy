@@ -33,10 +33,22 @@ export function ToyEdit() {
     }
 
     function handleChange({ target }) {
-        let { value, type, name: field } = target
-        value = type === 'number' ? +value : value
+        let { value, type, name: field, checked } = target
+        switch (type) {
+            case 'number':
+            case 'range':
+                value = +value
+                break
+            case 'checkbox':
+                value = checked
+            default:
+                break
+        }
+        
+        // value = type === 'number' ? +value : value
         setToyToEdit((prevToy) => ({ ...prevToy, [field]: value }))
     }
+
 
     function onSaveToy(ev) {
         ev.preventDefault()
@@ -51,6 +63,8 @@ export function ToyEdit() {
                 showErrorMsg('Cannot save toy')
             })
     }
+
+    
 
     function onHandleLabel({ target }) {
         const label = target.id
@@ -110,6 +124,15 @@ export function ToyEdit() {
                         </li>
                     })}
                 </ul>
+            </div>
+            <div className="in-stock-container">
+                <label htmlFor="inStock">In stock:</label>
+                <input type="checkbox"
+                    name="inStock"
+                    id="inStock"
+                    checked={toyToEdit.inStock}
+                    onChange={handleChange}
+                />
             </div>
 
             <div className="button-group">

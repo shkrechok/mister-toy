@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "t101",
+    "name": "Talking Do",
+    "price": 123,
+    "labels": [
+      "Doll",
+      "Battery Powered",
+      "Baby"
+    ],
+    "createdAt": 1631031801011,
+    "inStock": "false"
+  },
+  {
+    "_id": "t102",
+    "name": "Building Blocks",
+    "price": 45,
+    "labels": [
+      "Educational",
+      "Creative",
+      "Children"
+    ],
+    "createdAt": 1631031802011,
+    "inStock": "false"
+  },
+  {
+    "_id": "t103",
+    "name": "Remote Control Car",
+    "price": 76.99,
+    "labels": [
+      "Toy",
+      "RC Car",
+      "Kids"
+    ],
+    "createdAt": 1631031803011,
+    "inStock": "false"
+  },
+  {
+    "_id": "t104",
+    "name": "Puzzle Set",
+    "price": 29.99,
+    "labels": [
+      "Puzzle",
+      "Brain Teaser",
+      "Family"
+    ],
+    "createdAt": 1631031804011,
+    "inStock": "false"
+  },
+  {
+    "name": "new place",
+    "price": 3,
+    "inStock": true,
+    "labels": [],
+    "createdAt": 1684858224343,
+    "_id": "7JfQy"
+  }
+]

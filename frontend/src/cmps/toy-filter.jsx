@@ -49,7 +49,7 @@ export function ToyFilter({ onSetFilter }) {
                 ref={elInputRef}
             />
 
-            <label htmlFor="inStock">Max price:</label>
+            <label htmlFor="inStock">Stock status:</label>
             <select name="inStock" id="inStock" value={filterByToEdit.inStock} onChange={handleChange}>
                 <option value="all">All</option>
                 <option value="true">In stock</option>

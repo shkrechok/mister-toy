@@ -1,9 +1,10 @@
 
-// import { httpService } from './http.service.js'
+import { httpService } from './http.service.js'
 import { utilService } from "./util.service.js"
-import { storageService } from "./async-storage.service.js"
+// import { storageService } from "./async-storage.service.js"
 // const BASE_URL = 'label/'
 
+const BASE_URL = 'label/'
 const STORAGE_KEY = 'labelsDB'
 const demoLabels = ["Doll", "Battery Powered", "Baby","Educational", "Creative", "Children",
 "Toy", "RC Car", "Kids","Puzzle", "Brain Teaser", "Family","Stuffed Animal", "Cuddly"]
@@ -14,13 +15,13 @@ export const labelService = {
 }
 
 
-_createLabels()
+// _createLabels()
 
 function query() {
-    // return httpService.get(BASE_URL)
-    let labels = utilService.loadFromStorage(STORAGE_KEY)
-    console.log('labels', labels)
-    return Promise.resolve(labels)
+    return httpService.get(BASE_URL)
+    // let labels = utilService.loadFromStorage(STORAGE_KEY)
+    // console.log('labels', labels)
+    // return Promise.resolve(labels)
 }
 
 function _createLabels() {

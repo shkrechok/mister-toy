@@ -1,7 +1,9 @@
-import { storageService } from './async-storage.service.js'
+// import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
+import { httpService } from './http.service.js'
 
 const STORAGE_KEY = 'toyDB'
+const BASE_URL = 'toy/'
 
 const demoToys = [
     {
@@ -46,7 +48,7 @@ const demoToys = [
     }
 ]
 
-_createtoys()
+// _createtoys()
 export const toyService = {
     query,
     getById,
@@ -57,47 +59,20 @@ export const toyService = {
 }
 
 function query(filterBy = {}) {
-    // return axios.get(BASE_URL).then(res => res.data)
-    return storageService.query(STORAGE_KEY).then(toys => {
-
-        if (filterBy.txt) {
-            return toys.filter(toy => toy.name.includes(filterBy.txt))
-        }
-
-        if (filterBy.inStock) {
-            if (filterBy.inStock === 'true') {
-                return toys.filter(toy => toy.inStock)
-
-            } else if (filterBy.inStock === 'false') {
-                return toys.filter(toy => !toy.inStock)
-            } else {
-                return toys
-            }
-
-        }
-    }
-    ).catch(err => {
-        console.log('Had issues in toy service:', err)
-        throw err
-    }
-    )
+    return httpService.get(BASE_URL, filterBy)
 }
 function getById(toyId) {
-    return storageService.get(STORAGE_KEY, toyId)
+    // return storageService.get(STORAGE_KEY, toyId)
+    return httpService.get(BASE_URL + toyId)
 }
 function remove(toyId) {
-    // return Promise.reject('Not now!')
-    return storageService.remove(STORAGE_KEY, toyId)
+    // return storageService.remove(STORAGE_KEY, toyId)
+    return httpService.delete(BASE_URL + toyId)
 }
 function save(toy) {
-    console.log('toy.service', toy)
-    if (toy._id) {
-        // toy.updatedAt = Date.now()
-        return storageService.put(STORAGE_KEY, toy)
-    } else {
-        // toy.createdAt = Date.now()
-        return storageService.post(STORAGE_KEY, toy)
-    }
+    const method = (toy._id) ? 'put' : 'post'
+    return httpService[method](BASE_URL, toy)
+    
 }
 
 function getEmptyToy() {
@@ -119,5 +94,5 @@ function _createtoys() {
 }
 
 function getDefaultFilter() {
-    return { txt: '', inStock: 'true', type: '' }
+    return { txt: '', inStock: 'all', labels: [] }
 }
