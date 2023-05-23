@@ -9,7 +9,7 @@
       "Baby"
     ],
     "createdAt": 1631031801011,
-    "inStock": "false"
+    "inStock": true
   },
   {
     "_id": "t102",
@@ -21,7 +21,7 @@
       "Children"
     ],
     "createdAt": 1631031802011,
-    "inStock": "false"
+    "inStock": true
   },
   {
     "_id": "t103",
@@ -33,7 +33,7 @@
       "Kids"
     ],
     "createdAt": 1631031803011,
-    "inStock": "false"
+    "inStock": false
   },
   {
     "_id": "t104",
@@ -45,14 +45,22 @@
       "Family"
     ],
     "createdAt": 1631031804011,
-    "inStock": "false"
+    "inStock": false
   },
   {
-    "name": "new place",
-    "price": 3,
+    "name": "",
+    "price": 0,
     "inStock": true,
     "labels": [],
-    "createdAt": 1684858224343,
-    "_id": "7JfQy"
+    "createdAt": 1684868466009,
+    "_id": "2BADp"
+  },
+  {
+    "name": "",
+    "price": 0,
+    "inStock": true,
+    "labels": [],
+    "createdAt": 1684868468611,
+    "_id": "JKKz4"
   }
 ]
