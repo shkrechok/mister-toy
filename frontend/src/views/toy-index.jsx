@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import {  useSelector } from 'react-redux'
+import { useEffect} from 'react'
 import { Link } from 'react-router-dom'
 
 import { toyActions } from '../store/toy.actions.js'
@@ -7,13 +7,10 @@ import { toyService } from '../services/toy.service.js'
 import { ToyList } from '../cmps/toy-list.jsx'
 import { ToyFilter } from '../cmps/toy-filter.jsx'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { SET_TOYS, SET_FILTER,  store, ADD_TOY_TO_CART } from '../store/store.js'
 
 
 export function ToyIndex() {
-    const [filterBy, setFilterBy] = useState(toyService.getDefaultFilter())
-    const dispatch = useDispatch()
-    const toys = useSelector(storeState => storeState.toys)
+    const {toys, filterBy} = useSelector(storeState => storeState.toyModule)
 
     useEffect(() => {
         toyActions.loadToys(filterBy)
@@ -44,34 +41,25 @@ export function ToyIndex() {
                 })
         }
 
-        function onEditToy(toy) {
-            const price = +prompt('New price?', toy.price)
-            if (!price || price === toy.price) return
+        // function onEditToy(toy) {
+        //     const price = +prompt('New price?', toy.price)
+        //     if (!price || price === toy.price) return
     
-            const toyToSave = { ...toy, price }
-            toyActions.saveToy(toyToSave)
-                .then((savedToy) => {
-                    showSuccessMsg(`Toy updated to price: $${savedToy.price}`)
-                })
-                .catch(err => {
-                    showErrorMsg('Cannot update toy')
-                })
-        }
+        //     const toyToSave = { ...toy, price }
+        //     toyActions.saveToy(toyToSave)
+        //         .then((savedToy) => {
+        //             showSuccessMsg(`Toy updated to price: $${savedToy.price}`)
+        //         })
+        //         .catch(err => {
+        //             showErrorMsg('Cannot update toy')
+        //         })
+        // }
 
         function onSetFilter(filterBy) {
             console.log('FilterBy', filterBy)
-            setFilterBy(filterBy)
+            toyActions.setFilterBy(filterBy)
         }
 
-        function addToCart(toy) {
-            console.log(`Adding ${toy.name} to Cart`)
-            showSuccessMsg('Added to Cart')
-            dispatch({ type: ADD_TOY_TO_CART, toy })
-        }
-    
-        
-
-    
 
     if (!toys) {
         return (
@@ -104,8 +92,6 @@ export function ToyIndex() {
             <ToyList
                 toys={toys}
                 onRemoveToy={onRemoveToy}
-                onEditToy={onEditToy}
-                addToCart={addToCart}
             />
             </section>
         </section>
@@ -113,12 +99,6 @@ export function ToyIndex() {
 }
 
 
-{/* <header className="toy-header flex align-center space-between">
-                        <h1>Your toys</h1>
-                        {/* <Link to="/toy/edit">Add Toy</Link> 
-                    </header>
-                    <div>No toys to show</div>
-                    <ToyFilter dispatcher={filterDispatcher} curFilterBy={curFilterBy} /> */}
 
             
 

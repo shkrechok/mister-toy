@@ -119,5 +119,5 @@ function _createtoys() {
 }
 
 function getDefaultFilter() {
-    return { txt: '', inStock: true }
+    return { txt: '', inStock: 'true', type: '' }
 }
