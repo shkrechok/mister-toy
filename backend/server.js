@@ -42,8 +42,8 @@ app.get('/api/label', (req, res) => {
 // List
 app.get('/api/toy', (req, res) => {
     // TODO: get sortBy too
-    const {txt, labels, inStock} = req.query
-    const filterBy = {txt, labels, inStock }
+    const {txt, labels, inStock, pageIdx, pageSize} = req.query
+    const filterBy = {txt, labels, inStock, pageIdx, pageSize }
     toyService.query(filterBy)
         .then(toys => {
             res.send(toys)

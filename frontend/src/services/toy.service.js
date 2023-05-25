@@ -4,6 +4,7 @@ import { httpService } from './http.service.js'
 
 const STORAGE_KEY = 'toyDB'
 const BASE_URL = 'toy/'
+const PAGE_SIZE = 3
 
 const demoToys = [
     {
@@ -96,5 +97,5 @@ function _createtoys() {
 }
 
 function getDefaultFilter() {
-    return { txt: '', labels: [], inStock: 'all' }
+    return { txt: '', labels: [], inStock: 'all', pageIdx: 0, pageSize: PAGE_SIZE}
 }

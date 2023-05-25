@@ -4,7 +4,7 @@ var toys = require('../data/toy.json')
 function query(filterBy = {}) {
     let toysToDisplay = toys
 
-    const { txt, labels, inStock } = filterBy
+    const { txt, labels, inStock, pageIdx, pageSize } = filterBy
 
     console.log(filterBy)
 
@@ -24,6 +24,11 @@ function query(filterBy = {}) {
             return labels.every(label => toy.labels.includes(label))
         }
         )
+    }
+
+    if (pageIdx !== undefined) {
+        const startIdx = pageIdx * pageSize
+        toysToDisplay = toysToDisplay.slice(startIdx, startIdx + pageSize)
     }
 
     return Promise.resolve(toysToDisplay)

@@ -41,23 +41,15 @@ export function ToyIndex() {
                 })
         }
 
-        // function onEditToy(toy) {
-        //     const price = +prompt('New price?', toy.price)
-        //     if (!price || price === toy.price) return
-    
-        //     const toyToSave = { ...toy, price }
-        //     toyActions.saveToy(toyToSave)
-        //         .then((savedToy) => {
-        //             showSuccessMsg(`Toy updated to price: $${savedToy.price}`)
-        //         })
-        //         .catch(err => {
-        //             showErrorMsg('Cannot update toy')
-        //         })
-        // }
-
+        
         function onSetFilter(filterBy) {
             console.log('FilterBy', filterBy)
             toyActions.setFilterBy(filterBy)
+        }
+
+        function onChangePageIdx(diff) {
+            const nextPageIdx = filterBy.pageIdx + diff
+            toyActions.setFilterBy({...filterBy, pageIdx: nextPageIdx})
         }
 
 
@@ -79,6 +71,10 @@ export function ToyIndex() {
                     <div>No toys to show</div>
                     <ToyFilter  onSetFilter={onSetFilter} filterBy={filterBy} />
                 </section>
+                <section>
+                {(filterBy.pageIdx > 0) && <button onClick={() => onChangePageIdx(-1)}>-</button> }
+                <span>{filterBy.pageIdx + 1}</span>
+            </section>
             </section>
         )
     }
@@ -94,6 +90,11 @@ export function ToyIndex() {
                 onRemoveToy={onRemoveToy}
             />
             </section>
+           <section>
+               {(filterBy.pageIdx > 0) ? <button onClick={() => onChangePageIdx(-1)}>-</button> : '' }
+                <span>{filterBy.pageIdx + 1}</span>
+                <button onClick={() => onChangePageIdx(1)}>+</button>
+            </section> 
         </section>
     )
 }
