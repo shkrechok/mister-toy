@@ -5,7 +5,7 @@ import { LabelFilter } from "./label-filter.jsx"
 
 export function ToyFilter({ onSetFilter, filterBy }) {
 
-    const [filterByToEdit, setFilterByToEdit] = useState({...filterBy})
+    const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
     const [isLabelFilterOpen, setIsLabelFilterOpen] = useState(false)
 
     onSetFilter = useRef(utilService.debounce(onSetFilter))
@@ -21,29 +21,41 @@ export function ToyFilter({ onSetFilter, filterBy }) {
     }, [filterByToEdit])
 
     function handleChange({ target }) {
+        console.log('handleChange target', target);
         let { value, name: field, type } = target
         value = (type === 'number') ? +value : value
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
 
-    function onSubmitFilter(ev) {
-        // update father cmp that filters change on submit
-        ev.preventDefault()
-    }
 
     function onLabelChange(selectedLabels) {
+        console.log('onLabelChange', selectedLabels)
         setFilterByToEdit((prevFilter) => ({
             ...prevFilter,
-            labels:[...selectedLabels],
+            labels: [...selectedLabels],
         }))
+        // setIsLabelFilterOpen(false)
+    }
+
+    function onCloseLabelFilter() {
         setIsLabelFilterOpen(false)
     }
 
+    function handleSortTypeChange({ target }) {
+        const sortByType = target.value
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, sortBy: { ...prevFilter.sortBy, type: sortByType } }))
+    }
 
+    function onSetSortOrder() {
+        const sortByOrder = filterByToEdit.sortBy.desc
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, sortBy: { ...prevFilter.sortBy, desc: sortByOrder * -1 } }))
+    }
+
+    const { sortBy } = filterByToEdit
 
     return <section className="toy-filter full main-layout">
         <h2>Toys Filter</h2>
-        <form onSubmit={onSubmitFilter}>
+        <form onSubmit={ev => ev.preventDefault()}>
             <label htmlFor="txt">Name:</label>
             <input type="text"
                 id="txt"
@@ -63,8 +75,21 @@ export function ToyFilter({ onSetFilter, filterBy }) {
             <button hidden>Filter</button>
         </form>
         <button onClick={() => setIsLabelFilterOpen(!isLabelFilterOpen)}>Labels filter</button>
-       { isLabelFilterOpen &&           
-        <LabelFilter  onLabelChange={onLabelChange} filterByToEdit={filterByToEdit}>Select labels</LabelFilter>}
+        {isLabelFilterOpen &&
+            <LabelFilter onLabelChange={onLabelChange} filterByToEdit={filterByToEdit} onCloseLabelFilter={onCloseLabelFilter}>Select labels</LabelFilter>}
+        <form className="toy-sort" onSubmit={ev => ev.preventDefault()}>
+            <label htmlFor="sort-by">Sort by:</label>
+            <select name="sort-by" id="sort-by" value={filterByToEdit.sortBy.type} onChange={handleSortTypeChange}>
+                <option value="name">Name</option>
+                <option value="price">Price</option>
+                <option value="createdAt">Date</option>
+            </select>
+            <button onClick={onSetSortOrder} className="sort-order">
+                Sort order
+                {sortBy.desc === 1 && <span> ⬇️ </span>}
+                {sortBy.desc === -1 && <span> ⬆️ </span>}
+            </button>
 
+        </form>
     </section>
 }

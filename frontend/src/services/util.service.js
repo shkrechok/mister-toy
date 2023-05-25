@@ -9,7 +9,8 @@ export const utilService = {
     saveToStorage,
     loadFromStorage,
     getformatTimeAgo,
-    debounce
+    debounce,
+    formatDate
 }
 
 function makeId(length = 6) {
@@ -112,4 +113,18 @@ function getformatTimeAgo(unformattedTime) {
       clearTimeout(timer)
       timer = setTimeout(() => { func.apply(this, args) }, timeout)
     }
+  }
+
+  function formatDate(timestamp) {
+    const date = new Date(timestamp)
+    const formattedDate = date.toLocaleString('en-US', {
+      month: 'numeric',
+      day: 'numeric',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true
+    })
+  
+    return formattedDate
   }

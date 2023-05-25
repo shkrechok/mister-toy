@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { labelService } from '../services/label.service.js'
 
-export function LabelFilter({ onLabelChange, filterByToEdit }) {
+export function LabelFilter({ onLabelChange, filterByToEdit, onCloseLabelFilter }) {
     const [selectedLabels, setSelectedLabels] = useState([...filterByToEdit.labels])
     const [labels, setLabels] = useState([])
 
@@ -14,12 +14,19 @@ export function LabelFilter({ onLabelChange, filterByToEdit }) {
     }, [])
 
     function handleLabelChange(event) {
-        const label = event.target.value;
+        console.log(`handleLabelChange ${event.target.value} ${event.target.checked}`)
+        const label = event.target.value
+        let newValue = []
+        
         if (event.target.checked) {
-            setSelectedLabels([...selectedLabels, label]);
+            if (!selectedLabels.includes(label)) {
+                newValue = [...selectedLabels, label]
+            } 
         } else {
-            setSelectedLabels(selectedLabels.filter(l => l !== label));
+            newValue = selectedLabels.filter(selectedLabel => selectedLabel !== label)
         }
+        setSelectedLabels(newValue)
+        onLabelChange(newValue)
     }
 
 
@@ -36,7 +43,7 @@ export function LabelFilter({ onLabelChange, filterByToEdit }) {
                     {label}
                 </div>
             ))}
-            <button onClick={() => onLabelChange(selectedLabels)}>Apply</button>
+            <button onClick={() => onCloseLabelFilter()}>Close</button>
         </div>
     )
 }

@@ -43,7 +43,7 @@ export function ToyIndex() {
 
         
         function onSetFilter(filterBy) {
-            console.log('FilterBy', filterBy)
+            console.log('on set Filter', filterBy)
             toyActions.setFilterBy(filterBy)
         }
 
@@ -72,8 +72,8 @@ export function ToyIndex() {
                     <ToyFilter  onSetFilter={onSetFilter} filterBy={filterBy} />
                 </section>
                 <section>
-                {(filterBy.pageIdx > 0) && <button onClick={() => onChangePageIdx(-1)}>-</button> }
-                <span>{filterBy.pageIdx + 1}</span>
+                {(filterBy.pageIdx > 0) && (<div><button onClick={() => onChangePageIdx(-1)}>-</button> 
+                                                     <span> Page {filterBy.pageIdx + 1}</span></div>)}
             </section>
             </section>
         )
@@ -83,7 +83,7 @@ export function ToyIndex() {
         <section className="main-page">
             <section className="toy-app flex column">
             <Link to={`/toy/edit`}>Add Toy</Link>
-            <button onClick={onAddToy}>Add random Toy ⛐</button>
+            <button onClick={onAddToy}>Add random Toy</button>
             <ToyFilter onSetFilter={onSetFilter} filterBy={filterBy} />
             <ToyList
                 toys={toys}
@@ -92,7 +92,7 @@ export function ToyIndex() {
             </section>
            <section>
                {(filterBy.pageIdx > 0) ? <button onClick={() => onChangePageIdx(-1)}>-</button> : '' }
-                <span>{filterBy.pageIdx + 1}</span>
+                <span> Page {filterBy.pageIdx + 1} </span>
                 <button onClick={() => onChangePageIdx(1)}>+</button>
             </section> 
         </section>

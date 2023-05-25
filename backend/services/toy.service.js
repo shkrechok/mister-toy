@@ -4,16 +4,18 @@ var toys = require('../data/toy.json')
 function query(filterBy = {}) {
     let toysToDisplay = toys
 
-    const { txt, labels, inStock, pageIdx, pageSize } = filterBy
+    const { txt, labels, inStock, pageIdx, pageSize, sortBy } = filterBy
 
     console.log(filterBy)
-
+    if (sortBy) {
+        sortToys(toysToDisplay, sortBy)
+    }
     if (inStock !== 'all') {
         if (inStock === 'true') toysToDisplay = toys.filter(toy => toy.inStock)
         else
-        if (inStock === 'false') toysToDisplay = toys.filter(toy => !toy.inStock)
+            if (inStock === 'false') toysToDisplay = toys.filter(toy => !toy.inStock)
     }
-    
+
     if (txt) {
         const regExp = new RegExp(txt, 'i')
         toysToDisplay = toys.filter(toy => regExp.test(toy.name))
@@ -31,8 +33,21 @@ function query(filterBy = {}) {
         toysToDisplay = toysToDisplay.slice(startIdx, startIdx + pageSize)
     }
 
+
+
     return Promise.resolve(toysToDisplay)
 }
+
+function sortToys(toysToDisplay, { type, desc }) {
+    toysToDisplay.sort((b1, b2) => {
+        if (typeof b1[type] === 'string' && typeof b2[type] === 'string') {
+            return desc * b2[type].localeCompare(b1[type])
+        } else {
+            return (b2[type] - b1[type]) * desc
+        }
+    })
+}
+
 
 function get(toyId) {
     const toy = toys.find(toy => toy._id === toyId)

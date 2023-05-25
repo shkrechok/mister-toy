@@ -45,7 +45,6 @@ export function ToyEdit() {
                 break
         }
         
-        // value = type === 'number' ? +value : value
         setToyToEdit((prevToy) => ({ ...prevToy, [field]: value }))
     }
 
@@ -84,6 +83,8 @@ export function ToyEdit() {
             })
         }
     }
+
+     new Date(toyToEdit.createdAt).toLocaleDateString('he-IL')
     const labelsAsStr = JSON.stringify(toyToEdit.labels)
     console.log('labelsAsStr:', labelsAsStr)
 
@@ -107,9 +108,15 @@ export function ToyEdit() {
                 value={toyToEdit.price}
                 onChange={handleChange}
             />
-            <pre>
+            {/* <pre>
                 {labelsAsStr}
-            </pre>
+            </pre> */}
+            <p className="label-list">
+                {toyToEdit.labels.map(label => {
+                    return <span key={label}>{label}</span>
+                })}
+            </p>
+
             <div className="label-container">
                 <label>Labels:</label>
                 <ul>
@@ -140,5 +147,10 @@ export function ToyEdit() {
                 <Link to="/toy">Cancel</Link>
             </div>
         </form>
+        {toyToEdit.createdAt && (
+  <p>
+    Created at: <span>{new Date(toyToEdit.createdAt).toLocaleDateString('he-IL')}</span>
+  </p>
+)}
     </section>
 }

@@ -75,7 +75,7 @@ function remove(toyId) {
 function save(toy) {
     const method = (toy._id) ? 'put' : 'post'
     return httpService[method](BASE_URL, toy)
-    
+
 }
 
 function getEmptyToy() {
@@ -97,5 +97,15 @@ function _createtoys() {
 }
 
 function getDefaultFilter() {
-    return { txt: '', labels: [], inStock: 'all', pageIdx: 0, pageSize: PAGE_SIZE}
+    return {
+        txt: '',
+        labels: [],
+        inStock: 'all',
+        pageIdx: 0,
+        pageSize: PAGE_SIZE,
+        sortBy: {
+            type: 'name',
+            desc: 1
+        }
+    }
 }

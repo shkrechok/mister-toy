@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom";
 
 export function ToyPreview({ toy }) {
+     const createdAt = new Date(toy.createdAt).toLocaleDateString('he-IL')
+     const imgUrl = toy.name
     return <article>
         <h4>{toy.name}</h4>
-        <h1>⛐</h1>
+        <img src={`https://robohash.org/${imgUrl}?set=any?&size=200x200`} alt="" />
         <p>Price: <span>{toy.price.toLocaleString()}</span></p>
         <p>Type: <span>{toy.labels.join(", ")}</span></p>
         <hr />
-        {/* <Link to={`/toy/${toy._id}`}>Details</Link> | 
-        <Link to={`/toy/edit/${toy._id}`}>Edit</Link>  */}
+        <p>Created at: <span>{createdAt}</span></p>
 
     </article>
 }
