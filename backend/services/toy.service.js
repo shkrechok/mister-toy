@@ -11,7 +11,7 @@ function query(filterBy = {}) {
     if (inStock !== 'all') {
         if (inStock === 'true') toysToDisplay = toys.filter(toy => toy.inStock)
         else
-            toysToDisplay = toys.filter(toy => !toy.inStock)
+        if (inStock === 'false') toysToDisplay = toys.filter(toy => !toy.inStock)
     }
     
     if (txt) {
@@ -20,12 +20,11 @@ function query(filterBy = {}) {
     }
 
     if (labels && labels.length) {
-        // filter by labels
+        toysToDisplay = toysToDisplay.filter(toy => {
+            return labels.every(label => toy.labels.includes(label))
+        }
+        )
     }
-
-
-
-
 
     return Promise.resolve(toysToDisplay)
 }

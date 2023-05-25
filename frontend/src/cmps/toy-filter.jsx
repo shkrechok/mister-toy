@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react"
-import { toyService } from "../services/toy.service.js"
 import { utilService } from "../services/util.service.js"
+import { LabelFilter } from "./label-filter.jsx"
 
 
-export function ToyFilter({ onSetFilter }) {
+export function ToyFilter({ onSetFilter, filterBy }) {
 
-    const [filterByToEdit, setFilterByToEdit] = useState(toyService.getDefaultFilter())
+    const [filterByToEdit, setFilterByToEdit] = useState({...filterBy})
+    const [isLabelFilterOpen, setIsLabelFilterOpen] = useState(false)
 
     onSetFilter = useRef(utilService.debounce(onSetFilter))
-
     const elInputRef = useRef(null)
 
     useEffect(() => {
@@ -16,10 +16,7 @@ export function ToyFilter({ onSetFilter }) {
     }, [])
 
     useEffect(() => {
-        // update father cmp that filters change very type
-
         onSetFilter.current(filterByToEdit)
-        
         // eslint-disable-next-line
     }, [filterByToEdit])
 
@@ -32,8 +29,16 @@ export function ToyFilter({ onSetFilter }) {
     function onSubmitFilter(ev) {
         // update father cmp that filters change on submit
         ev.preventDefault()
-        onSetFilter(filterByToEdit)
     }
+
+    function onLabelChange(selectedLabels) {
+        setFilterByToEdit((prevFilter) => ({
+            ...prevFilter,
+            labels:[...selectedLabels],
+        }))
+        setIsLabelFilterOpen(false)
+    }
+
 
 
     return <section className="toy-filter full main-layout">
@@ -48,7 +53,6 @@ export function ToyFilter({ onSetFilter }) {
                 onChange={handleChange}
                 ref={elInputRef}
             />
-
             <label htmlFor="inStock">Stock status:</label>
             <select name="inStock" id="inStock" value={filterByToEdit.inStock} onChange={handleChange}>
                 <option value="all">All</option>
@@ -58,6 +62,9 @@ export function ToyFilter({ onSetFilter }) {
 
             <button hidden>Filter</button>
         </form>
+        <button onClick={() => setIsLabelFilterOpen(!isLabelFilterOpen)}>Labels filter</button>
+       { isLabelFilterOpen &&           
+        <LabelFilter  onLabelChange={onLabelChange} filterByToEdit={filterByToEdit}>Select labels</LabelFilter>}
 
     </section>
 }

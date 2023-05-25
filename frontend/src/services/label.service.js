@@ -5,9 +5,9 @@ import { utilService } from "./util.service.js"
 // const BASE_URL = 'label/'
 
 const BASE_URL = 'label/'
-const STORAGE_KEY = 'labelsDB'
-const demoLabels = ["Doll", "Battery Powered", "Baby","Educational", "Creative", "Children",
-"Toy", "RC Car", "Kids","Puzzle", "Brain Teaser", "Family","Stuffed Animal", "Cuddly"]
+// const STORAGE_KEY = 'labelsDB'
+// const demoLabels = ["Doll", "Battery Powered", "Baby","Educational", "Creative", "Children",
+// "Toy", "RC Car", "Kids","Puzzle", "Brain Teaser", "Family","Stuffed Animal", "Cuddly"]
 
 
 export const labelService = {
@@ -24,11 +24,11 @@ function query() {
     // return Promise.resolve(labels)
 }
 
-function _createLabels() {
-    let labels = utilService.loadFromStorage(STORAGE_KEY)
-    if (!labels || !labels.length) {
-        labels = demoLabels
-        utilService.saveToStorage(STORAGE_KEY, labels)
-    }
-    return labels
-}
+// function _createLabels() {
+//     let labels = utilService.loadFromStorage(STORAGE_KEY)
+//     if (!labels || !labels.length) {
+//         labels = demoLabels
+//         utilService.saveToStorage(STORAGE_KEY, labels)
+//     }
+//     return labels
+// }

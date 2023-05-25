@@ -42,7 +42,8 @@ app.get('/api/label', (req, res) => {
 // List
 app.get('/api/toy', (req, res) => {
     // TODO: get sortBy too
-    const filterBy = req.query
+    const {txt, labels, inStock} = req.query
+    const filterBy = {txt, labels, inStock }
     toyService.query(filterBy)
         .then(toys => {
             res.send(toys)
@@ -79,7 +80,7 @@ app.post('/api/toy', (req, res) => {
 // Edit
 app.put('/api/toy', (req, res) => {
 
-    const { name, price, _id, inStock = 'true', labels, createdAt } = req.body
+    const { name, price, _id, inStock = true, labels, createdAt } = req.body
     const toy = {
         _id,
         name,

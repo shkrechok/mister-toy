@@ -4,9 +4,13 @@
     "name": "Talking Do",
     "price": 123,
     "labels": [
-      "Doll",
+      "Baby",
       "Battery Powered",
-      "Baby"
+      "Educational",
+      "Children",
+      "Puzzle",
+      "Kids",
+      "Toy"
     ],
     "createdAt": 1631031801011,
     "inStock": true

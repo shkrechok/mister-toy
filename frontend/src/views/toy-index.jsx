@@ -77,7 +77,7 @@ export function ToyIndex() {
                         <Link to="/toy/edit">Add Toy</Link>
                     </header>
                     <div>No toys to show</div>
-                    <ToyFilter  onSetFilter={onSetFilter} />
+                    <ToyFilter  onSetFilter={onSetFilter} filterBy={filterBy} />
                 </section>
             </section>
         )
@@ -88,7 +88,7 @@ export function ToyIndex() {
             <section className="toy-app flex column">
             <Link to={`/toy/edit`}>Add Toy</Link>
             <button onClick={onAddToy}>Add random Toy ⛐</button>
-            <ToyFilter onSetFilter={onSetFilter} />
+            <ToyFilter onSetFilter={onSetFilter} filterBy={filterBy} />
             <ToyList
                 toys={toys}
                 onRemoveToy={onRemoveToy}

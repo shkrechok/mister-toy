@@ -59,6 +59,8 @@ export const toyService = {
 }
 
 function query(filterBy = {}) {
+    // let filterQueryParams = `?name=${filterBy.txt}&labels=${filterBy.labels}&inStock=${filterBy.inStock}`
+
     return httpService.get(BASE_URL, filterBy)
 }
 function getById(toyId) {
@@ -94,5 +96,5 @@ function _createtoys() {
 }
 
 function getDefaultFilter() {
-    return { txt: '', inStock: 'all', labels: [] }
+    return { txt: '', labels: [], inStock: 'all' }
 }
