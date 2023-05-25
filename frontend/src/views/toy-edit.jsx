@@ -105,7 +105,7 @@ export function ToyEdit() {
                 name="price"
                 id="price"
                 placeholder="Enter price"
-                value={toyToEdit.price}
+                value={toyToEdit.price ? toyToEdit.price : ''}
                 onChange={handleChange}
             />
             {/* <pre>

@@ -1,15 +1,31 @@
 {
   "files": {
     "main.css": "/static/css/main.ee0ed7a8.css",
-    "main.js": "/static/js/main.05f07228.js",
+    "main.js": "/static/js/main.dfff7460.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/balloons.jpg": "/static/media/balloons.252a561b84f168570a95.jpg",
+    "static/media/ball.jpg": "/static/media/ball.e94ca6b20b5055493295.jpg",
+    "static/media/doll.jpg": "/static/media/doll.26588208364f2eb48599.jpg",
+    "static/media/car.jpg": "/static/media/car.7cff70227f69d61ad9df.jpg",
+    "static/media/batterries.jpg": "/static/media/batterries.d525f6998354d5b565aa.jpg",
+    "static/media/scooter.jpg": "/static/media/scooter.716cd46e0287564a7aaf.jpg",
+    "static/media/railway.jpg": "/static/media/railway.b5e8da1e80bb04b4db44.jpg",
+    "static/media/decoration.jpg": "/static/media/decoration.826b476354cda8e99408.jpg",
+    "static/media/walle.jpg": "/static/media/walle.a0191da6d9cffffa382e.jpg",
+    "static/media/bear.jpg": "/static/media/bear.1b74a4c10f2cc8d545a8.jpg",
+    "static/media/car2.jpg": "/static/media/car2.214f21515a354f0774af.jpg",
+    "static/media/robot.jpg": "/static/media/robot.1e01cd7efc12ed8a002b.jpg",
+    "static/media/demo.jpg": "/static/media/demo.f622d2f83b4a0eacc841.jpg",
+    "static/media/checkMate.jpg": "/static/media/checkMate.8e9312f16d750f77b9d2.jpg",
+    "static/media/battery.jpg": "/static/media/battery.e6f3ecb4e7e4eeb681f8.jpg",
+    "static/media/lego.jpg": "/static/media/lego.47560f5422371275a42f.jpg",
     "index.html": "/index.html",
     "main.ee0ed7a8.css.map": "/static/css/main.ee0ed7a8.css.map",
-    "main.05f07228.js.map": "/static/js/main.05f07228.js.map",
+    "main.dfff7460.js.map": "/static/js/main.dfff7460.js.map",
     "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ee0ed7a8.css",
-    "static/js/main.05f07228.js"
+    "static/js/main.dfff7460.js"
   ]
 }

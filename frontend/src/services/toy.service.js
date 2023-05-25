@@ -81,9 +81,10 @@ function save(toy) {
 function getEmptyToy() {
     return {
         name: '',
-        price: 0,
+        price: '',
         labels: [],
         inStock: true,
+        imgUrl: 'demo.jpg'
     }
 }
 

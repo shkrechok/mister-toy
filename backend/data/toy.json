@@ -1,7 +1,16 @@
 [
   {
+    "name": "Walle",
+    "price": 12,
+    "inStock": true,
+    "labels": [],
+    "imgUrl": "walle.jpg",
+    "createdAt": 1685045699504,
+    "_id": "vQJ0s"
+  },
+  {
     "_id": "t101",
-    "name": "Talking Do",
+    "name": "Talking Doll",
     "price": 123,
     "labels": [
       "Baby",
@@ -13,7 +22,17 @@
       "Toy"
     ],
     "createdAt": 1631031801011,
-    "inStock": true
+    "inStock": true,
+    "imgUrl": "doll.jpg"
+  },
+  {
+    "name": "Robotrick",
+    "price": 20,
+    "inStock": true,
+    "labels": [],
+    "createdAt": 1685045226016,
+    "_id": "PBdXT",
+    "imgUrl": "robot.jpg"
   },
   {
     "_id": "t103",
@@ -25,7 +44,8 @@
       "Kids"
     ],
     "createdAt": 1631031803011,
-    "inStock": false
+    "inStock": false,
+    "imgUrl": "car2.jpg"
   },
   {
     "_id": "t102",
@@ -37,7 +57,8 @@
       "Children"
     ],
     "createdAt": 1631031802011,
-    "inStock": true
+    "inStock": true,
+    "imgUrl": "lego.jpg"
   },
   {
     "name": "",
@@ -45,7 +66,8 @@
     "inStock": true,
     "labels": [],
     "createdAt": 1684868466009,
-    "_id": "2BADp"
+    "_id": "2BADp",
+    "imgUrl": "doll.jpg"
   },
   {
     "name": "",
@@ -53,7 +75,8 @@
     "inStock": true,
     "labels": [],
     "createdAt": 1684868468611,
-    "_id": "JKKz4"
+    "_id": "JKKz4",
+    "imgUrl": "demo.jpg"
   },
   {
     "name": "",
@@ -61,6 +84,20 @@
     "inStock": true,
     "labels": [],
     "createdAt": 1685026875462,
-    "_id": "4SzfS"
+    "_id": "4SzfS",
+    "imgUrl": "demo.jpg"
+  },
+  {
+    "name": "Dolls",
+    "price": 45,
+    "inStock": true,
+    "labels": [
+      "Doll",
+      "Children",
+      "Educational"
+    ],
+    "imgUrl": "demo.jpg",
+    "createdAt": 1685046811901,
+    "_id": "e50lV"
   }
 ]
