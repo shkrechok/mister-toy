@@ -18,7 +18,8 @@ const cors = require('cors')
 //     credentials: true
 // }
 // app.use(cors(corsOptions))
-app.use(express.static('public'))
+app.use('/imgs',express.static('data/imgs'))
+
 app.use(cookieParser()) // for res.cookies
 app.use(express.json()) // for req.body
 
@@ -130,6 +131,7 @@ const port = process.env.PORT || 3030;
 // app.get('/**', (req, res) => {
 //     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 // })
+app.use(express.static(path.resolve(__dirname, 'public')))
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}!`)

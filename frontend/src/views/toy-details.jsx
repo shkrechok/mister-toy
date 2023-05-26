@@ -34,7 +34,7 @@ export function ToyDetails() {
     return <section className="toy-details">
         <h1>Toy name : {toy.name}</h1>
         {/* <img src={`https://robohash.org/${imgUrl}?set=any?&size=200x200`} alt="" /> */}
-        <img src={require(`../assets/imgs/${imgUrl}`)} alt="no image" />
+        <img src={`/imgs/${imgUrl}`} alt="no image" />
         <h5>Price: {toy.price}</h5>
         <p>Type: {toy.labels.join(", ")}</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptas cumque tempore, aperiam sed dolorum rem! Nemo quidem, placeat perferendis tempora aspernatur sit, explicabo veritatis corrupti perspiciatis repellat, enim quibusdam!</p>
