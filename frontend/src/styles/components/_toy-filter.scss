@@ -26,7 +26,7 @@
     }
 
     .toy-sort {
-        justify-self: start;
+        justify-self: center;
     }
 
     .filter-fields,
@@ -34,6 +34,12 @@
         justify-content: center;
         display: flex;
         gap: 5px;
+        
+        .sort-order {
+           color: $clr2a;
+           font-size: 1.5rem;
+           padding-block: 0;
+        }
     }
 
 
@@ -43,6 +49,7 @@
     button {
         background-color: $clr3;
         height: 2rem;
+        padding-inline: 1rem;
     }
 
     h2 {
@@ -81,12 +88,13 @@
         position: absolute;
         background-color: $clr3;
         min-width: fit-content;
-        top: 0;
+        top: 100%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         align-items: center;
         justify-items: center;
         padding: $layoutPadding;
+        @include transform(1, 1);
 
 
         .label-container {
@@ -96,6 +104,7 @@
             justify-content: center;
             align-content: center;
             justify-items: center;
+            @include transform(1, 1);
 
         }
 
@@ -113,6 +122,9 @@
         grid-template-columns: repeat(3, auto);
         align-items: center;
         align-content: center;
+        .toy-sort {
+            justify-self: start;
+        }
 
         &:hover {
             border-style: none;

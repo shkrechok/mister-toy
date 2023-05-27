@@ -48,6 +48,19 @@
     "imgUrl": "car2.jpg"
   },
   {
+    "name": "Dolls",
+    "price": 45,
+    "inStock": true,
+    "labels": [
+      "Doll",
+      "Children",
+      "Educational"
+    ],
+    "imgUrl": "demo.jpg",
+    "createdAt": 1685046811901,
+    "_id": "e50lV"
+  },
+  {
     "_id": "t102",
     "name": "Building Blocks",
     "price": 45,
@@ -74,30 +87,8 @@
     "price": 0,
     "inStock": true,
     "labels": [],
-    "createdAt": 1684868468611,
-    "_id": "JKKz4",
-    "imgUrl": "demo.jpg"
-  },
-  {
-    "name": "",
-    "price": 0,
-    "inStock": true,
-    "labels": [],
     "createdAt": 1685026875462,
     "_id": "4SzfS",
     "imgUrl": "demo.jpg"
-  },
-  {
-    "name": "Dolls",
-    "price": 45,
-    "inStock": true,
-    "labels": [
-      "Doll",
-      "Children",
-      "Educational"
-    ],
-    "imgUrl": "demo.jpg",
-    "createdAt": 1685046811901,
-    "_id": "e50lV"
   }
 ]

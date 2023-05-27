@@ -25,10 +25,11 @@
         }
 
         a {
+            color: $clr3b;
             transition: all 0.3s ease-in-out;
             &:hover {
                 
-                color: $clr2;
+                color: $clr2a;
             }
         }
     }

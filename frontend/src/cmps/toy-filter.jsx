@@ -85,8 +85,8 @@ export function ToyFilter({ onSetFilter, filterBy }) {
                 <option value="createdAt">Date</option>
             </select>
             <button onClick={onSetSortOrder} className="sort-order">
-                {sortBy.desc === 1 && <span> ⬇️ </span>}
-                {sortBy.desc === -1 && <span> ⬆️ </span>}
+                {sortBy.desc === 1 && <span> ⬇ </span>}
+                {sortBy.desc === -1 && <span> ⬆ </span>}
             </button>
 
         </form>
