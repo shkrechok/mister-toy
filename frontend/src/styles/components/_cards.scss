@@ -16,11 +16,13 @@
         & .toy-img {
             align-self: center;
             justify-self: center;
-            max-width: 80%;
-            max-height: 60%;
+            max-width: 256px;
+            max-height: 263px;
             object-fit: contain;
-            border-radius: 5rem;
+            // border-radius: 5rem;
             flex-grow: 1;
+            margin-block-start: 10px;
+            margin-block-end: 20px;
         }
 
 
@@ -60,6 +62,7 @@
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
     gap: 5px;
+    margin-block-end: 10px;
 
     & .toy-btn {
         width: 100%;

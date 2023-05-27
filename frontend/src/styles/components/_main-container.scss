@@ -44,6 +44,37 @@
 
     }
 
+    .pager {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin: 20px 0;
+
+        button, span {
+            padding: 0;
+            margin: 0;
+            border: none;
+            font-size: rem(20px);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: $clr2a;
+            background-color: transparent;
+            transition: all 0.3s ease-in-out;
+
+        button {
+            font-weight: 900;
+            font-size: rem(30px);
+            align-self: end;
+        }    
+
+            &:hover {
+                color: $clr3;
+            }
+        }
+    }
+
 
 }
 
