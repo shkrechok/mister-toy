@@ -114,7 +114,7 @@ export function ToyEdit() {
             </pre> */}
             <p className="label-list">
                 {toyToEdit.labels.map(label => {
-                    return <span key={label}>{label}</span>
+                    return <span key={label}>{`${label}, `}</span>
                 })}
             </p>
 

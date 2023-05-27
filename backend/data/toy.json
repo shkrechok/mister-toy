@@ -3,7 +3,11 @@
     "name": "Walle",
     "price": 12,
     "inStock": true,
-    "labels": [],
+    "labels": [
+      "Doll",
+      "Battery Powered",
+      "Children"
+    ],
     "imgUrl": "walle.jpg",
     "createdAt": 1685045699504,
     "_id": "vQJ0s"
