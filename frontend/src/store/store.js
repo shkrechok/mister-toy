@@ -6,10 +6,10 @@ const rootReducer = combineReducers({
     toyModule: toyReducer,
 })
 
-
-const middleware = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
-export const store = createStore(rootReducer, middleware)
-
+const store = createStore(
+  rootReducer,
+  applyMiddleware(/* middleware */)
+);
 store.subscribe(() => {
     // console.log('Current state is:', store.getState())
 })
