@@ -80,7 +80,7 @@ function save(toy) {
 
 function getEmptyToy() {
     return {
-        name: '',
+        name: 'New toy',
         price: '',
         labels: [],
         inStock: true,

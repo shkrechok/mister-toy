@@ -30,6 +30,15 @@
     "imgUrl": "doll.jpg"
   },
   {
+    "name": "Robotrick2",
+    "price": 25,
+    "inStock": true,
+    "labels": [],
+    "imgUrl": "demo.jpg",
+    "createdAt": 1685217778341,
+    "_id": "9Ugds"
+  },
+  {
     "name": "Robotrick",
     "price": 20,
     "inStock": true,
@@ -50,6 +59,15 @@
     "createdAt": 1631031803011,
     "inStock": false,
     "imgUrl": "car2.jpg"
+  },
+  {
+    "name": "New doll",
+    "price": 0,
+    "inStock": true,
+    "labels": [],
+    "createdAt": 1684868466009,
+    "_id": "2BADp",
+    "imgUrl": "doll.jpg"
   },
   {
     "name": "Dolls",
@@ -78,21 +96,12 @@
     "imgUrl": "lego.jpg"
   },
   {
-    "name": "",
+    "name": "New toy",
     "price": 0,
     "inStock": true,
     "labels": [],
-    "createdAt": 1684868466009,
-    "_id": "2BADp",
-    "imgUrl": "doll.jpg"
-  },
-  {
-    "name": "",
-    "price": 0,
-    "inStock": true,
-    "labels": [],
-    "createdAt": 1685026875462,
-    "_id": "4SzfS",
-    "imgUrl": "demo.jpg"
+    "imgUrl": "demo.jpg",
+    "createdAt": 1685217849037,
+    "_id": "tmNWN"
   }
 ]
