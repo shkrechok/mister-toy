@@ -117,6 +117,11 @@
         &:hover {
             border-style: none;
             @include transform(1.02, 1.02);
+
+            * :not(h2),
+            .categories-btn {
+                @include transform(1, 1);
+            }
         }
     }
 }
