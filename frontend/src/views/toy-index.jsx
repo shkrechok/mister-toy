@@ -58,7 +58,7 @@ export function ToyIndex() {
     if (!toys) {
         return (
             <section className="main-container">
-                <div>Loading...</div>
+                <div style={{textAlign: "center"}}>Loading...</div>
             </section>
         )
     }
@@ -71,7 +71,7 @@ export function ToyIndex() {
                     <button onClick={onAddToy}>Add random Toy</button>
                 </header>
                 <ToyFilter onSetFilter={onSetFilter} filterBy={filterBy} />
-                <div>No toys to show</div>
+                <div style={{textAlign: "center"}}>No toys to show</div>
                 <section className='pager'>
                     {(filterBy.pageIdx > 0) && (<div><button onClick={() => onChangePageIdx(-1)}>-</button>
                         <span> Page {filterBy.pageIdx + 1}</span></div>)}

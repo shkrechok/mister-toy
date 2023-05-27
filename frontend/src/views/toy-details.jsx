@@ -27,7 +27,7 @@ export function ToyDetails() {
     
     
 
-    if (!toy) return <div>Loading...</div>
+    if (!toy) return <div style={{textAlign:"center"}}>Loading...</div>
     
     const createdAt = new Date(toy.createdAt).toLocaleDateString('he-IL')
     const imgUrl = toy.imgUrl
