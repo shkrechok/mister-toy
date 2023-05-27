@@ -16,6 +16,7 @@ export function LabelFilter({ onLabelChange, filterByToEdit, onCloseLabelFilter 
     function handleLabelChange(event) {
         console.log(`handleLabelChange ${event.target.value} ${event.target.checked}`)
         const label = event.target.value
+        // the async way
         let newValue = []
         
         if (event.target.checked) {
@@ -33,17 +34,18 @@ export function LabelFilter({ onLabelChange, filterByToEdit, onCloseLabelFilter 
     return (
         <div className="label-selector">
             {labels.map(label => (
-                <div key={label}>
+                <div className="label-container" key={label}>
                     <input
                         type="checkbox"
+                        id={`${label}`}
                         value={label}
                         checked={selectedLabels.includes(label)}
                         onChange={handleLabelChange}
                     />
-                    {label}
+                   <label htmlFor={`${label}`}>{label}</label> 
                 </div>
             ))}
-            <button onClick={() => onCloseLabelFilter()}>Close</button>
+            <button onClick={() => onCloseLabelFilter()}>X</button>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import { Route, HashRouter as Router, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import './assets/css/main.css';
+import './App.css';
+import './styles/styles.scss';
 
 import { store } from './store/store'
 import { AppHeader } from './cmps/app-header'
@@ -16,7 +17,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <Router>
-        <section className="main-layout app">
+        <section id="app" className="main-layout app">
           <AppHeader />
           <main>
             <Routes>

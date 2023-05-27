@@ -1,0 +1,90 @@
+.toy-preview {
+    background-color: $clr2;
+    border-radius: 5rem;
+    // padding-inline: $layoutPadding;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    & .toy-fields {
+
+        color: $clr3a;
+
+
+        & .toy-img {
+            align-self: center;
+            justify-self: center;
+            // width: 100%;
+            // height: 100%;
+            object-fit: cover;
+            border-radius: 5rem;
+            flex-grow: 1;
+        }
+
+
+        & .toy-name {
+            font-size: rem(20px);
+            font-weight: 700;
+            color: $clr3b;
+            text-align: center;
+        }
+
+        & .toy-price {
+            font-size: rem(20px);
+            font-weight: 700;
+            color: $clr3b;
+            text-align: center;
+        }
+
+        & .toy-labels {
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-style: italic ;
+        }
+
+        & .toy-date {
+            font-style: italic ;
+            }
+    }
+
+
+
+& .toy-btns {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+
+    & .toy-btn {
+        width: 100%;
+        padding: 5px;
+        background-color: $clr3;
+        border-style: none;
+        border-radius: 2rem;
+        font-size: rem(18px);
+        font-weight: 500;
+        color: $clr1;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+
+        & a {
+            color: inherit;
+        }
+
+        &:hover {
+            background-color: $clr2;
+            color: $clr3;
+
+            & a {
+                color: inherit;
+            }
+        }
+    }
+}
+}

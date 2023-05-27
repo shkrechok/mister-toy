@@ -1,0 +1,25 @@
+// Flex 
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+// List 
+.clean-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+// Links
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}

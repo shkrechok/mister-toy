@@ -4,7 +4,7 @@ import { httpService } from './http.service.js'
 
 const STORAGE_KEY = 'toyDB'
 const BASE_URL = 'toy/'
-const PAGE_SIZE = 3
+const PAGE_SIZE = 8
 
 const demoToys = [
     {

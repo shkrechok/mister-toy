@@ -1,0 +1,16 @@
+// SETUP
+@import 'setup/variables';
+@import 'setup/mixins';
+@import 'setup/functions';
+
+// BASICS
+@import 'basics/helpers';
+@import 'basics/base';
+@import 'basics/layout';
+
+// COMPONENTS
+@import 'components/main-header';
+@import 'components/main-footer';
+@import 'components/cards';
+@import 'components/main-container';
+@import 'components/toy-filter';

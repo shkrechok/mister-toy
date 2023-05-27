@@ -41,6 +41,7 @@ export function ToyEdit() {
                 break
             case 'checkbox':
                 value = checked
+                break
             default:
                 break
         }

@@ -1,0 +1,23 @@
+// COLORS
+$clr1: #f2eeee;
+$clr3: #9e98e8;
+$clr2: complement($clr3);
+$clr2a: darken($clr2, 40%);
+$clr3a: darken($clr3, 40%);
+$clr3b: darken($clr3, 20%);
+$clr2b: rgb(233, 235, 234);
+$clr4: #2d2d2d;
+$clr5: #05063b;
+$clr6: #000;
+
+// LAYOUT
+$layoutPadding: 10px;
+$cardHeight: 500px;
+$cardMinWidth: 300px;
+$cardMaxWidth: 400px;
+
+// LAYOUT BREAKPOINTS
+$break-narrow: 1200px;
+$break-normal: 1360px;
+$break-wide: 1920px;
+

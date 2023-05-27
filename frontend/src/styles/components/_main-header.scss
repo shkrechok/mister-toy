@@ -1,0 +1,42 @@
+header.main-header {
+    height: rem(100px);
+    background-color: $clr3;
+    display:flex;
+
+    & .logo {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        padding-inline-start: $layoutPadding;
+        font-size: rem(30px);
+        font-weight: 700;
+        color: $clr2b;
+        & h3 {
+           margin: 0;
+           color: $clr2b;
+        }
+    }
+
+    & .nav {
+        display: flex;
+        gap: rem(20px);
+        align-items: end;
+        justify-content: end;
+        padding-inline-end: $layoutPadding;
+        flex-grow: 1;
+        font-size: rem(20px);
+        font-weight: 700;
+        color: $clr2a;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+
+        & a {
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                color: $clr2;
+            }
+        }
+    }
+}

@@ -53,39 +53,38 @@ export function ToyFilter({ onSetFilter, filterBy }) {
 
     const { sortBy } = filterByToEdit
 
-    return <section className="toy-filter full main-layout">
-        <h2>Toys Filter</h2>
-        <form onSubmit={ev => ev.preventDefault()}>
-            <label htmlFor="txt">Name:</label>
+    return <section className="toy-filter">
+        <h2>Filters</h2>
+        <form className="filter-fields" onSubmit={ev => ev.preventDefault()}>
+            <label htmlFor="txt">Filter</label>
             <input type="text"
                 id="txt"
                 name="txt"
-                placeholder="Search by name"
+                placeholder="Search..."
                 value={filterByToEdit.txt}
                 onChange={handleChange}
                 ref={elInputRef}
             />
-            <label htmlFor="inStock">Stock status:</label>
+            <label htmlFor="inStock"></label>
             <select name="inStock" id="inStock" value={filterByToEdit.inStock} onChange={handleChange}>
                 <option value="all">All</option>
                 <option value="true">In stock</option>
                 <option value="false">Out of stock</option>
             </select>
 
-            <button hidden>Filter</button>
+            {/* <button hidden>Filter</button> */}
         </form>
-        <button onClick={() => setIsLabelFilterOpen(!isLabelFilterOpen)}>Labels filter</button>
+        <button className="categories-btn" onClick={() => setIsLabelFilterOpen(!isLabelFilterOpen)}> Categories </button>
         {isLabelFilterOpen &&
             <LabelFilter onLabelChange={onLabelChange} filterByToEdit={filterByToEdit} onCloseLabelFilter={onCloseLabelFilter}>Select labels</LabelFilter>}
         <form className="toy-sort" onSubmit={ev => ev.preventDefault()}>
-            <label htmlFor="sort-by">Sort by:</label>
+            <label htmlFor="sort-by"> Sort </label>
             <select name="sort-by" id="sort-by" value={filterByToEdit.sortBy.type} onChange={handleSortTypeChange}>
                 <option value="name">Name</option>
                 <option value="price">Price</option>
                 <option value="createdAt">Date</option>
             </select>
             <button onClick={onSetSortOrder} className="sort-order">
-                Sort order
                 {sortBy.desc === 1 && <span> ⬇️ </span>}
                 {sortBy.desc === -1 && <span> ⬆️ </span>}
             </button>

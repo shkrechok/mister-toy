@@ -1,0 +1,122 @@
+.toy-filter {
+    display: grid;
+    width: 70%;
+    min-width: 370px;
+    min-height: 72px;
+    justify-self: center;
+    grid-template-rows: repeat(3, auto);
+    background-color: $clr2;
+    border-radius: 5rem;
+    transition: all 0.3s ease-in-out;
+    justify-content: space-around;
+    align-items: center;
+
+
+
+    * {
+        justify-self: center;
+        align-self: center;
+        color: $clr3a;
+        border-style: none;
+        border-radius: 2rem;
+    }
+
+    .filter-fields {
+        justify-self: end;
+    }
+
+    .toy-sort {
+        justify-self: start;
+    }
+
+    .filter-fields,
+    .toy-sort {
+        justify-content: center;
+        display: flex;
+        gap: 5px;
+    }
+
+
+
+    input,
+    select,
+    button {
+        background-color: $clr3;
+        height: 2rem;
+    }
+
+    h2 {
+        grid-column: 1 / -1;
+        grid-row: 1/-1;
+        text-align: center;
+        color: $clr3b;
+    }
+
+    * :not(h2, .label-selector),
+    .categories-btn {
+        display: none;
+    }
+
+    &:hover {
+        @include transform(1.02, 2);
+        border-style: solid;
+        border-width: 1px;
+        border-color: $clr2a;
+
+        h2 {
+            display: none;
+        }
+
+        * :not(h2),
+        .categories-btn {
+            display: block;
+            @include transform(1, 0.5);
+        }
+    }
+
+
+
+
+    .label-selector {
+        position: absolute;
+        background-color: $clr3;
+        min-width: fit-content;
+        top: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        justify-items: center;
+        padding: $layoutPadding;
+
+
+        .label-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            justify-items: center;
+
+        }
+
+        button {
+            border-style: solid;
+            border-color: $clr1;
+            color: $clr1;
+            font-weight: 500;
+        }
+
+
+    }
+
+    @include for-normal-layout {
+        grid-template-columns: repeat(3, auto);
+        align-items: center;
+        align-content: center;
+
+        &:hover {
+            border-style: none;
+            @include transform(1.02, 1.02);
+        }
+    }
+}
